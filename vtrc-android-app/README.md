@@ -1,4 +1,4 @@
-in-swifiic-andi
+VTRC-Android-App
 ===============
 
 Library for VTRC Android Apps
