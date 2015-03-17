@@ -40,3 +40,28 @@ $ sudo apt-get install eclipse
 To set up this up follow the instructions at Android Developers Website, or proceed further if you downloaded the official Android SDK
 
 For IBR-DTN Setup, [Click Here](https://trac.ibr.cs.tu-bs.de/project-cm-2012-ibrdtn/wiki/download#DebianUbuntuRepository)
+
+After installation completion, edit /etc/ibrdtn/ibrdtnd.conf and put something like the following:
+
+```
+local_uri = dtn://example-url
+logfile = /var/log/ibrdtn/ibrdtn.log
+fragmentation = yes
+stats_traffic = yes
+blob_path = /tmp
+storage_path = /var/spool/ibrdtn/bundles
+discovery_address = ff02::142 224.0.0.142
+discovery_announce = 1
+discovery_crosslayer = yes
+net_interfaces = wlan0
+net_rebind = yes
+net_autoconnect = 3600
+net_internet = eth0
+tcp_idle_timeout = 0
+p2p_ctrlpath = /var/run/wpa_supplicant/wlan0
+routing = epidemic
+routing_forwarding = yes
+net_wlan0_type = tcp # we want to use TCP as protocol
+net_wlan0_interface = wlan0 # listen on interface eth0
+net_wlan0_port = 4556
+```
